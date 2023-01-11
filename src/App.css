@@ -1,0 +1,23 @@
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin: 1vw;
+  
+}
+
+.editAndDelete {
+  display: flex;
+  justify-content: start;
+}
+.inputAndButton{
+      
+    display: flex;
+    justify-content: space-between;
+
+
+}
+.gridAndListButtons{
+  display: flex;
+    gap: 2vw;
+}
