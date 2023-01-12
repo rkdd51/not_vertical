@@ -15,8 +15,12 @@ function ProductProvider({ children }) {
 
   //for Crud
   const [productList, setProductList] = useState([]);
-
-  const addProduct = (product) => {
+  const [product, setProduct] = useState({
+    name: "",
+    amount: 0,
+    description: "",
+  });
+  const addProduct = () => {
     setProductList([...productList, product]);
   };
 
@@ -29,11 +33,17 @@ function ProductProvider({ children }) {
     newExpenses[index] = updatedExpense;
     setProductList(newExpenses);
   };
-
+  //Search States
+  const [search, setSearch] = useState("");
   return (
     <ProductContext.Provider
       value={{
+        search,
+        setSearch,
+        product,
+        setProduct,
         productList,
+        setProductList,
         addProduct,
         removeProduct,
         updateProduct,

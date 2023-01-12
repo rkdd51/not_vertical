@@ -4,12 +4,12 @@ import Container from "react-bootstrap/Container";
 import ProductList from "./components/ProductList";
 import AddProduct from "./components/AddProduct";
 import Button from "react-bootstrap/Button";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { ProductContext } from "./GlobalProvider/ProductProvider";
 
 function App() {
-  const { state, gridView, listView, productList } = useContext(ProductContext);
-  const [query, setQuery] = useState("");
+  const { state, gridView, listView, search, setSearch } =
+    useContext(ProductContext);
 
   return (
     <div className="App">
@@ -21,17 +21,12 @@ function App() {
         <div className="inputAndButton">
           <div>
             <input
-              onChange={(e) => setQuery(e.target.value)}
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
               placeholder="Search Name"
             />
           </div>
-          {/* <ul>
-            {productList
-              .filter((pro) => pro.name.toLowerCase().includes(query))
-              .map((pro) => (
-                <li key={pro.name}>{pro.name}</li>
-              ))}
-          </ul> */}
+
           <div className="gridAndListButtons">
             <Button variant="outline-secondary" onClick={listView}>
               List View

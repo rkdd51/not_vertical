@@ -10,16 +10,11 @@ function AddProduct() {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const { addProduct } = useContext(ProductContext);
-  const [product, setProduct] = useState({
-    name: "",
-    amount: 0,
-    description: "",
-  });
+  const { addProduct, product, setProduct } = useContext(ProductContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addProduct(product);
+    addProduct();
     setProduct({ name: "", amount: 0, description: "" });
     handleClose();
   };
